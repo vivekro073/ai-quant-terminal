@@ -1,0 +1,6 @@
+Flask
+gunicorn
+yfinance
+pandas
+google-genai
+python-dotenv

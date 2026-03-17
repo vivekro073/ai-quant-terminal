@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ ticker }} - AI Analysis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* This forces the AI's markdown bullet points to look clean */
+        .ai-report h1 { font-size: 2rem; font-weight: bold; margin-bottom: 1rem; color: #fff; }
+        .ai-report strong { color: #60A5FA; font-size: 1.5rem; display: block; margin-bottom: 1rem; }
+        .ai-report ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.5rem; color: #D1D5DB; line-height: 1.8; }
+        .ai-report li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white min-h-screen p-6 md:p-12">
+
+    <div class="max-w-3xl mx-auto">
+        <a href="/" class="inline-flex items-center text-blue-400 hover:text-blue-300 mb-8 transition">
+            &larr; Back to Terminal
+        </a>
+
+        <div class="bg-gray-800 rounded-2xl shadow-2xl p-8 md:p-10 border border-gray-700">
+            <div class="flex items-center justify-between border-b border-gray-700 pb-6 mb-6">
+                <h1 class="text-4xl font-extrabold tracking-tight">{{ ticker }}</h1>
+                <span class="px-4 py-1 bg-gray-700 text-xs font-semibold rounded-full uppercase tracking-wider">Live Analysis</span>
+            </div>
+
+            <div class="ai-report">
+                {{ report | safe }}
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
