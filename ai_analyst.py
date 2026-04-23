@@ -33,23 +33,3 @@ def analyze_stock(ticker_symbol, price_history, news_headlines):
         If your signal is HOLD or SELL, replace the word BUY inside the <strong> tags. Do not include any conversational filler."""
     response = client.models.generate_content(model='gemini-2.5-flash', contents=prompt)
     return response.text
-
-
-if __name__ == "__main__":
-    ticker = "AAPL"
-    print(f"Fetching data for {ticker}...")
-
-    # 1. Get the raw data from your market_data file
-    history, recent_news = get_stock_data(ticker)
-
-    # 2. Extract just the titles from the complex news dictionary
-    news_titles = [article["content"]["title"] for article in recent_news[:3]]
-
-    print("Synthesizing AI trading signal...")
-
-    # 3. Pass it to the AI
-    signal = analyze_stock(ticker, history['Close'].to_string(), "\n".join(news_titles))
-
-    print("\n" + "=" * 40 + "\n")
-    print(signal)
-    print("\n" + "=" * 40)
