@@ -10,7 +10,18 @@
 
     <div class="max-w-md w-full bg-gray-800 rounded-2xl shadow-2xl p-8 border border-gray-700">
         <h1 class="text-3xl font-bold text-center mb-2">AI Stock Insights</h1>
-        <p class="text-gray-400 text-center mb-8">Real-time AI sentiment & price analysis.</p>
+        <p class="text-gray-400 text-center mb-6">Real-time AI sentiment & price analysis.</p>
+
+        <div class="bg-blue-900/20 border-l-4 border-blue-500 p-4 mb-6 text-sm text-blue-200 rounded-r-md">
+            <strong class="font-semibold text-blue-400">Note:</strong> This tool runs on a free-tier AI model. If the servers are experiencing high traffic,
+            <a href="https://youtu.be/JHOmjgS5EE8" target="_blank" class="font-bold underline hover:text-blue-300 transition-colors">watch the demo video here.</a>
+        </div>
+
+        {% if error %}
+        <div class="bg-red-900/20 border-l-4 border-red-500 p-4 mb-6 text-sm text-red-200 rounded-r-md">
+            <strong class="font-semibold text-red-400">Connection Failed:</strong> {{ error }}
+        </div>
+        {% endif %}
 
         <form action="/analyze" method="POST" class="flex flex-col gap-4">
             <div>
